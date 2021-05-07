@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../components/side_menu.dart';
 
 class MainScreen extends StatelessWidget {
   @override
@@ -7,10 +8,7 @@ class MainScreen extends StatelessWidget {
       body: SafeArea(
         child: Row(
           children: [
-            Expanded(
-                child: Container(
-              color: Colors.white,
-            )),
+            Expanded(child: SideMenu()),
             Expanded(
                 flex: 5,
                 child: Container(

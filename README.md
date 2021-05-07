@@ -1,4 +1,4 @@
-# booze_delivery_dashboard
+# Dashboard
 
 A new Flutter project.
 
