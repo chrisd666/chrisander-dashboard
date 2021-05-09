@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../constants.dart';
 import './components/header.dart';
 import './components/storage_details.dart';
+import 'components/my_files.dart';
 
 class DashboardScreen extends StatelessWidget {
   @override
@@ -14,16 +15,12 @@ class DashboardScreen extends StatelessWidget {
             Header(),
             SizedBox(
               width: defaultPadding,
+              height: defaultPadding,
             ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(
-                    flex: 5,
-                    child: Container(
-                      height: 500,
-                      color: Colors.white,
-                    )),
+                Expanded(flex: 5, child: MyFields()),
                 SizedBox(
                   width: defaultPadding,
                 ),
