@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import '../../constants.dart';
 import './components/header.dart';
 import './components/storage_details.dart';
-import 'components/my_files.dart';
+import './components/my_files.dart';
+import './components/recent_files.dart';
 
 class DashboardScreen extends StatelessWidget {
   @override
@@ -20,7 +21,15 @@ class DashboardScreen extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(flex: 5, child: MyFields()),
+                Expanded(
+                    flex: 5,
+                    child: Column(children: [
+                      MyFields(),
+                      SizedBox(
+                        height: defaultPadding,
+                      ),
+                      RecentFiles()
+                    ])),
                 SizedBox(
                   width: defaultPadding,
                 ),

@@ -1,5 +1,6 @@
-import 'package:booze_delivery_dashboard/screens/dashboard/dashboard_screen.dart';
 import 'package:flutter/material.dart';
+import '../../responsive.dart';
+import '../../screens/dashboard/dashboard_screen.dart';
 import './components/side_menu.dart';
 
 class MainScreen extends StatelessWidget {
@@ -10,7 +11,7 @@ class MainScreen extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(child: SideMenu()),
+            if (Responsive.isDesktop(context)) Expanded(child: SideMenu()),
             Expanded(flex: 5, child: DashboardScreen())
           ],
         ),
