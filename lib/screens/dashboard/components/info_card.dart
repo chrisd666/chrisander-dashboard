@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import '../../../constants.dart';
 import '../../../models/InfoCardData.dart';
 
@@ -42,6 +43,8 @@ class InfoCardLeft extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var numberFormat = NumberFormat("#,##,###.00");
+
     return Container(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -55,7 +58,7 @@ class InfoCardLeft extends StatelessWidget {
                 .copyWith(color: Colors.white70),
           ),
           Text(
-            "${info.isMoney ? 'Rs. ' : null} ${info.amount}",
+            "${info.isMoney ? 'Rs. ' : null} ${numberFormat.format(info.amount)}",
             style: Theme.of(context).textTheme.headline5.copyWith(
                 color: Colors.lightBlueAccent, fontWeight: FontWeight.w600),
           ),

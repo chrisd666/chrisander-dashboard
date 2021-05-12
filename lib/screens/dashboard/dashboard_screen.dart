@@ -4,7 +4,7 @@ import '../../responsive.dart';
 import './components/header.dart';
 import './components/storage_details.dart';
 import 'components/info.dart';
-import './components/recent_files.dart';
+import 'components/recent_sales.dart';
 
 class DashboardScreen extends StatelessWidget {
   @override
@@ -29,7 +29,7 @@ class DashboardScreen extends StatelessWidget {
                       SizedBox(
                         height: defaultPadding,
                       ),
-                      RecentFiles(),
+                      RecentSales(),
                       if (Responsive.isMobile(context))
                         SizedBox(
                           height: defaultPadding,

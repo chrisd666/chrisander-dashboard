@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../constants.dart';
 
 class CloudStorageInfo {
   final IconData icon;
@@ -18,12 +17,12 @@ class CloudStorageInfo {
 List<CloudStorageInfo> demoMyFields = [
   CloudStorageInfo(
       title: "Total Sales",
-      amount: 450,
+      amount: 45000.00,
       icon: Icons.trending_up,
       percentageChange: 45),
   CloudStorageInfo(
     title: "Total Revenue",
-    amount: 920,
+    amount: 92000.00,
     icon: Icons.attach_money,
     percentageChange: 60,
   ),
