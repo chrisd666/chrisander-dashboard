@@ -3,7 +3,7 @@ import '../../constants.dart';
 import '../../responsive.dart';
 import './components/header.dart';
 import './components/storage_details.dart';
-import './components/my_files.dart';
+import 'components/info.dart';
 import './components/recent_files.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -25,7 +25,7 @@ class DashboardScreen extends StatelessWidget {
                 Expanded(
                     flex: 5,
                     child: Column(children: [
-                      MyFields(),
+                      Info(),
                       SizedBox(
                         height: defaultPadding,
                       ),

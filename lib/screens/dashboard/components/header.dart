@@ -17,16 +17,13 @@ class Header extends StatelessWidget {
           IconButton(
               icon: Icon(Icons.menu),
               onPressed: context.read<MenuController>().controlMenu),
-        if (!Responsive.isMobile(context))
-          Text(
-            "Dashboard",
-            style: Theme.of(context).textTheme.headline6,
-          ),
-        if (!Responsive.isMobile(context))
-          Spacer(
-            flex: Responsive.isDesktop(context) ? 2 : 1,
-          ),
-        Expanded(child: SearchField()),
+        Text(
+          "Dashboard",
+          style: Theme.of(context).textTheme.headline6,
+        ),
+        Spacer(
+          flex: Responsive.isDesktop(context) ? 2 : 1,
+        ),
         ProfileCard()
       ],
     );
@@ -65,36 +62,6 @@ class ProfileCard extends StatelessWidget {
           Icon(Icons.keyboard_arrow_down)
         ],
       ),
-    );
-  }
-}
-
-class SearchField extends StatelessWidget {
-  const SearchField({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      decoration: InputDecoration(
-          hintText: "Search",
-          fillColor: secondaryColor,
-          filled: true,
-          border: OutlineInputBorder(
-              borderSide: BorderSide.none,
-              borderRadius: const BorderRadius.all(Radius.circular(10))),
-          suffixIcon: InkWell(
-            onTap: () {},
-            child: Container(
-              padding: EdgeInsets.all(defaultPadding * 0.75),
-              margin: EdgeInsets.symmetric(horizontal: defaultPadding / 2),
-              decoration: BoxDecoration(
-                  color: primaryColor,
-                  borderRadius: const BorderRadius.all(Radius.circular(10))),
-              child: Icon(Icons.search_rounded),
-            ),
-          )),
     );
   }
 }
