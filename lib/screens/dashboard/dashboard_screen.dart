@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../constants.dart';
 import '../../responsive.dart';
 import './components/header.dart';
-import './components/storage_details.dart';
+import 'components/sales_details.dart';
 import 'components/info.dart';
 import 'components/recent_sales.dart';
 
@@ -34,14 +34,14 @@ class DashboardScreen extends StatelessWidget {
                         SizedBox(
                           height: defaultPadding,
                         ),
-                      if (Responsive.isMobile(context)) StorageDetails()
+                      if (Responsive.isMobile(context)) SalesDetails()
                     ])),
                 if (!Responsive.isMobile(context))
                   SizedBox(
                     width: defaultPadding,
                   ),
                 if (!Responsive.isMobile(context))
-                  Expanded(flex: 2, child: StorageDetails())
+                  Expanded(flex: 2, child: SalesDetails())
               ],
             )
           ],

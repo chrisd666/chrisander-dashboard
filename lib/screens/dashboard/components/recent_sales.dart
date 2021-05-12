@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import '../../../constants.dart';
 import '../../../models/SaleInfo.dart';
 
@@ -7,11 +6,9 @@ class RecentSales extends StatelessWidget {
   const RecentSales({Key key}) : super(key: key);
 
   DataRow recentSalesDataRow(SaleInfo purchase) {
-    var priceFormat = NumberFormat("#,##,###.00");
-
     return DataRow(cells: [
       DataCell(Text(purchase.product)),
-      DataCell(Text(priceFormat.format(purchase.price))),
+      DataCell(Text(numberFormat.format(purchase.price))),
       DataCell(Text("${purchase.quantity}")),
       DataCell(Text(purchase.date))
     ]);
@@ -41,7 +38,7 @@ class RecentSales extends StatelessWidget {
                   DataColumn(label: Text("Product")),
                   DataColumn(label: Text("Amount")),
                   DataColumn(label: Text("Quantity")),
-                  DataColumn(label: Text("Purchased On")),
+                  DataColumn(label: Text("Sold On")),
                 ],
                 rows: List.generate(demoSaleInfo.length,
                     (index) => recentSalesDataRow(demoSaleInfo[index]))),

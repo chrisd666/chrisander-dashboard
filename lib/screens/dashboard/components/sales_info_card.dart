@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import '../../../constants.dart';
 
-class StorageInfoCard extends StatelessWidget {
-  const StorageInfoCard({
+class SalesInfoCard extends StatelessWidget {
+  const SalesInfoCard({
     Key key,
     @required this.title,
-    @required this.totalSizeOfFiles,
+    @required this.inventoryQty,
     @required this.icon,
-    @required this.noOfFiles,
+    @required this.soldQty,
   }) : super(key: key);
 
-  final String title, totalSizeOfFiles;
+  final String title;
   final IconData icon;
-  final int noOfFiles;
+  final int soldQty, inventoryQty;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class StorageInfoCard extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
                 Text(
-                  "$noOfFiles Files",
+                  numberFormat.format(inventoryQty),
                   style: Theme.of(context)
                       .textTheme
                       .caption
@@ -53,7 +53,7 @@ class StorageInfoCard extends StatelessWidget {
               ],
             ),
           )),
-          Text(totalSizeOfFiles)
+          Text(numberFormat.format(soldQty))
         ],
       ),
     );
