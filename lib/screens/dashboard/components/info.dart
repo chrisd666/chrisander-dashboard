@@ -15,15 +15,36 @@ class Info extends StatelessWidget {
 
     return Column(
       children: [
+        // Responsive(
+        //   mobile: InfoCardGridView(
+        //       // crossAxisCount: _size.width < 650 ? 2 : 4,
+        //       // childAspectRatio: _size.width < 650 ? 1.3 : 1,
+        //       ),
+        //   tablet: InfoCardGridView(
+        //     crossAxisCount: 2,
+        //     childAspectRatio: Responsive.isTablet(context) ? 1 / 0.3 : 1.1,
+        //   ),
+        //   desktop: InfoCardGridView(
+        //     crossAxisCount: 2,
+        //     childAspectRatio: Responsive.isDesktop(context) ? 1 / 0.5 : 1.1,
+        //   ),
+        // )
+
         Responsive(
-          mobile: InfoCardGridView(
-            crossAxisCount: _size.width < 650 ? 2 : 4,
-            childAspectRatio: _size.width < 650 ? 1.3 : 1,
-          ),
-          tablet: InfoCardGridView(),
-          desktop: InfoCardGridView(
+          xs: InfoCardGridView(
+              // crossAxisCount: _size.width < 650 ? 2 : 4,
+              // childAspectRatio: _size.width < 650 ? 1.3 : 1,
+              ),
+          sm: InfoCardGridView(
             crossAxisCount: 2,
-            childAspectRatio: _size.width < 1400 ? 1.1 : 1 / 0.5,
+          ),
+          md: InfoCardGridView(
+            crossAxisCount: 2,
+            childAspectRatio: Responsive.isMD(context) ? 1 / 0.5 : 1.1,
+          ),
+          lg: InfoCardGridView(
+            crossAxisCount: 2,
+            childAspectRatio: Responsive.isLG(context) ? 1 / 0.5 : 1.1,
           ),
         )
       ],
@@ -34,9 +55,8 @@ class Info extends StatelessWidget {
 class InfoCardGridView extends StatelessWidget {
   const InfoCardGridView({
     Key key,
-    this.crossAxisCount = 2,
-    this.childAspectRatio = 1,
-    // this.childAspectRatio = 1 / 0.5,
+    this.crossAxisCount = 1,
+    this.childAspectRatio = 1 / 0.5,
   }) : super(key: key);
 
   final int crossAxisCount;

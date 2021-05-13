@@ -30,17 +30,18 @@ class DashboardScreen extends StatelessWidget {
                         height: defaultPadding,
                       ),
                       RecentSales(),
-                      if (Responsive.isMobile(context))
+                      if (Responsive.isXS(context) || Responsive.isSM(context))
                         SizedBox(
                           height: defaultPadding,
                         ),
-                      if (Responsive.isMobile(context)) SalesDetails()
+                      if (Responsive.isXS(context) || Responsive.isSM(context))
+                        SalesDetails()
                     ])),
-                if (!Responsive.isMobile(context))
+                if (!Responsive.isXS(context) && !Responsive.isSM(context))
                   SizedBox(
                     width: defaultPadding,
                   ),
-                if (!Responsive.isMobile(context))
+                if (!Responsive.isXS(context) && !Responsive.isSM(context))
                   Expanded(flex: 2, child: SalesDetails())
               ],
             )

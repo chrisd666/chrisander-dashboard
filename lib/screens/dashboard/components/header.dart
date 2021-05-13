@@ -13,7 +13,7 @@ class Header extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        if (!Responsive.isDesktop(context))
+        if (!Responsive.isLG(context))
           IconButton(
               icon: Icon(Icons.menu),
               onPressed: context.read<MenuController>().controlMenu),
@@ -22,7 +22,7 @@ class Header extends StatelessWidget {
           style: Theme.of(context).textTheme.headline6,
         ),
         Spacer(
-          flex: Responsive.isDesktop(context) ? 2 : 1,
+          flex: Responsive.isLG(context) ? 2 : 1,
         ),
         ProfileCard()
       ],
@@ -53,12 +53,12 @@ class ProfileCard extends StatelessWidget {
               size: 38,
             ),
           ),
-          if (!Responsive.isMobile(context))
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: defaultPadding / 2),
-              child: Text("Christopher Dias"),
-            ),
+          // if (!Responsive.isMobile(context))
+          //   Padding(
+          //     padding:
+          //         const EdgeInsets.symmetric(horizontal: defaultPadding / 2),
+          //     child: Text("Christopher Dias"),
+          //   ),
           Icon(Icons.keyboard_arrow_down)
         ],
       ),
