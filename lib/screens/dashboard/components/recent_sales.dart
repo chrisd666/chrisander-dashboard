@@ -31,17 +31,20 @@ class RecentSales extends StatelessWidget {
           ),
           SizedBox(
             width: double.infinity,
-            child: DataTable(
-                horizontalMargin: 0,
-                columnSpacing: defaultPadding,
-                columns: [
-                  DataColumn(label: Text("Product")),
-                  DataColumn(label: Text("Amount")),
-                  DataColumn(label: Text("Quantity")),
-                  DataColumn(label: Text("Sold On")),
-                ],
-                rows: List.generate(demoSaleInfo.length,
-                    (index) => recentSalesDataRow(demoSaleInfo[index]))),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: DataTable(
+                  horizontalMargin: 0,
+                  columnSpacing: defaultPadding,
+                  columns: [
+                    DataColumn(label: Text("Product")),
+                    DataColumn(label: Text("Amount")),
+                    DataColumn(label: Text("Quantity")),
+                    DataColumn(label: Text("Sold On")),
+                  ],
+                  rows: List.generate(demoSaleInfo.length,
+                      (index) => recentSalesDataRow(demoSaleInfo[index]))),
+            ),
           )
         ],
       ),
