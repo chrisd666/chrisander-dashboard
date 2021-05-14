@@ -20,7 +20,7 @@ List<CloudStorageInfo> demoMyFields = [
       graphData: [
         {'x': 1, 'y': 1},
         {'x': 2, 'y': 3},
-        {'x': 3, 'y': 0},
+        {'x': 3, 'y': 2},
         {'x': 4, 'y': 9},
         {'x': 5, 'y': 2},
         {'x': 6, 'y': 6},

@@ -1,6 +1,5 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import '../../../constants.dart';
 import '../../../models/InfoCardData.dart';
 
@@ -17,7 +16,6 @@ class InfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(defaultPadding),
       decoration: BoxDecoration(
           color: secondaryColor,
           borderRadius: const BorderRadius.all(Radius.circular(10))),
@@ -38,32 +36,30 @@ class InfoChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LineChart(
-      LineChartData(
-          borderData: FlBorderData(show: false),
-          titlesData: FlTitlesData(show: false),
-          gridData: FlGridData(show: false),
-          lineTouchData: LineTouchData(enabled: false),
-          lineBarsData: [
-            LineChartBarData(
-                spots: [
-                  FlSpot(1, 3),
-                  FlSpot(2.6, 2),
-                  FlSpot(4.9, 5),
-                  FlSpot(6.8, 4.1),
-                  FlSpot(9.5, 4.5)
-                ],
-                isCurved: true,
-                dotData: FlDotData(show: false),
-                colors: gradientColors,
-                belowBarData: BarAreaData(
-                    show: true,
-                    colors: gradientColors
-                        .map((color) => color.withOpacity(0.1))
-                        .toList()))
-          ]),
-      swapAnimationDuration: Duration(milliseconds: 150), // Optional
-      swapAnimationCurve: Curves.linear,
+    return Padding(
+      padding: const EdgeInsets.only(top: defaultPadding * 3),
+      child: LineChart(
+        LineChartData(
+            borderData: FlBorderData(show: false),
+            titlesData: FlTitlesData(show: false),
+            gridData: FlGridData(show: false),
+            lineTouchData: LineTouchData(enabled: false),
+            minY: 0,
+            lineBarsData: [
+              LineChartBarData(
+                  spots: graphData.map((e) => FlSpot(e['x'], e['y'])).toList(),
+                  isCurved: true,
+                  dotData: FlDotData(show: false),
+                  colors: gradientColors,
+                  belowBarData: BarAreaData(
+                      show: true,
+                      colors: gradientColors
+                          .map((color) => color.withOpacity(0.1))
+                          .toList()))
+            ]),
+        swapAnimationDuration: Duration(milliseconds: 150), // Optional
+        swapAnimationCurve: Curves.linear,
+      ),
     );
   }
 }
@@ -78,9 +74,8 @@ class InfoFigures extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var numberFormat = NumberFormat("#,##,###.00");
-
     return Container(
+      padding: EdgeInsets.all(defaultPadding),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
