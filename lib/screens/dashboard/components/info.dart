@@ -11,30 +11,10 @@ class Info extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Size _size = MediaQuery.of(context).size;
-
     return Column(
       children: [
-        // Responsive(
-        //   mobile: InfoCardGridView(
-        //       // crossAxisCount: _size.width < 650 ? 2 : 4,
-        //       // childAspectRatio: _size.width < 650 ? 1.3 : 1,
-        //       ),
-        //   tablet: InfoCardGridView(
-        //     crossAxisCount: 2,
-        //     childAspectRatio: Responsive.isTablet(context) ? 1 / 0.3 : 1.1,
-        //   ),
-        //   desktop: InfoCardGridView(
-        //     crossAxisCount: 2,
-        //     childAspectRatio: Responsive.isDesktop(context) ? 1 / 0.5 : 1.1,
-        //   ),
-        // )
-
         Responsive(
-          xs: InfoCardGridView(
-              // crossAxisCount: _size.width < 650 ? 2 : 4,
-              // childAspectRatio: _size.width < 650 ? 1.3 : 1,
-              ),
+          xs: InfoCardGridView(),
           sm: InfoCardGridView(
             crossAxisCount: 2,
           ),

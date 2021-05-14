@@ -1,7 +1,13 @@
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../../../constants.dart';
 import '../../../models/InfoCardData.dart';
+
+List<Color> gradientColors = [
+  const Color(0xff23b6e6).withOpacity(0.6),
+  const Color(0xff02d39a).withOpacity(0.6),
+];
 
 class InfoCard extends StatelessWidget {
   const InfoCard({Key key, @required this.info}) : super(key: key);
@@ -15,26 +21,55 @@ class InfoCard extends StatelessWidget {
       decoration: BoxDecoration(
           color: secondaryColor,
           borderRadius: const BorderRadius.all(Radius.circular(10))),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Stack(
         children: [
-          InfoCardLeft(info: info),
-          Container(
-            height: 100,
-            width: 100,
-            decoration: BoxDecoration(
-                color: primaryColor.withOpacity(0.1),
-                borderRadius: const BorderRadius.all(Radius.circular(50))),
-            child: Icon(info.icon),
-          ),
+          InfoChart(graphData: info.graphData),
+          InfoFigures(info: info),
         ],
       ),
     );
   }
 }
 
-class InfoCardLeft extends StatelessWidget {
-  const InfoCardLeft({
+class InfoChart extends StatelessWidget {
+  const InfoChart({Key key, @required this.graphData}) : super(key: key);
+
+  final List<Map<String, double>> graphData;
+
+  @override
+  Widget build(BuildContext context) {
+    return LineChart(
+      LineChartData(
+          borderData: FlBorderData(show: false),
+          titlesData: FlTitlesData(show: false),
+          gridData: FlGridData(show: false),
+          lineTouchData: LineTouchData(enabled: false),
+          lineBarsData: [
+            LineChartBarData(
+                spots: [
+                  FlSpot(1, 3),
+                  FlSpot(2.6, 2),
+                  FlSpot(4.9, 5),
+                  FlSpot(6.8, 4.1),
+                  FlSpot(9.5, 4.5)
+                ],
+                isCurved: true,
+                dotData: FlDotData(show: false),
+                colors: gradientColors,
+                belowBarData: BarAreaData(
+                    show: true,
+                    colors: gradientColors
+                        .map((color) => color.withOpacity(0.1))
+                        .toList()))
+          ]),
+      swapAnimationDuration: Duration(milliseconds: 150), // Optional
+      swapAnimationCurve: Curves.linear,
+    );
+  }
+}
+
+class InfoFigures extends StatelessWidget {
+  const InfoFigures({
     Key key,
     @required this.info,
   }) : super(key: key);
