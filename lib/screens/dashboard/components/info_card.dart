@@ -95,13 +95,16 @@ class InfoFigures extends StatelessWidget {
           RichText(
               text: TextSpan(children: [
             WidgetSpan(
-                child: Container(
-                    margin: EdgeInsets.only(right: defaultPadding / 2),
-                    child: Icon(
-                      Icons.arrow_upward_rounded,
-                      color: Colors.greenAccent,
-                    )),
-                alignment: PlaceholderAlignment.middle),
+              alignment: PlaceholderAlignment.middle,
+              child: Container(
+                margin: EdgeInsets.only(right: defaultPadding / 2),
+                child: Icon(
+                  Icons.arrow_upward_rounded,
+                  color: Colors.greenAccent,
+                  size: 16,
+                ),
+              ),
+            ),
             TextSpan(
                 text: "+${info.percentageChange}%  ",
                 style: Theme.of(context)
