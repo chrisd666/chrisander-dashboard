@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 class SaleInfo {
   final String product, date;
   final double price;
@@ -32,3 +34,10 @@ List<SaleInfo> demoSaleInfo = [
     date: "25-02-2021",
   ),
 ];
+
+class SaleInfoHeader {
+  final String title;
+  final bool isNumeric;
+
+  SaleInfoHeader({@required this.title, this.isNumeric = false});
+}

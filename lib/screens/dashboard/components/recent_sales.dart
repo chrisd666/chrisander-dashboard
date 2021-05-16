@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../widgets/CustomDataTable/custom_data_table.dart';
 import '../../../constants.dart';
 import '../../../models/SaleInfo.dart';
 
@@ -8,61 +9,27 @@ class RecentSales extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(defaultPadding),
-      decoration: BoxDecoration(
-        color: secondaryColor,
-        borderRadius: const BorderRadius.all(Radius.circular(10)),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "Recent Sales",
-            style: Theme.of(context).textTheme.subtitle1,
-          ),
-          RecentSalesTable()
-        ],
-      ),
-    );
-  }
-}
-
-class RecentSalesTable extends StatelessWidget {
-  const RecentSalesTable({Key key}) : super(key: key);
-
-  DataRow recentSalesDataRow(SaleInfo purchase) {
-    return DataRow(cells: [
-      DataCell(Text(purchase.product)),
-      DataCell(Text(numberFormat.format(purchase.price))),
-      DataCell(Text("${purchase.quantity}")),
-      DataCell(Text(purchase.date))
-    ]);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      child: LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) =>
-            SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: ConstrainedBox(
-            constraints: BoxConstraints(minWidth: constraints.maxWidth),
-            child: DataTable(
-                horizontalMargin: 0,
-                columnSpacing: defaultPadding,
-                columns: [
-                  DataColumn(label: Text("Product")),
-                  DataColumn(label: Text("Amount")),
-                  DataColumn(label: Text("Quantity")),
-                  DataColumn(label: Text("Sold On")),
-                ],
-                rows: List.generate(demoSaleInfo.length,
-                    (index) => recentSalesDataRow(demoSaleInfo[index]))),
-          ),
+        padding: EdgeInsets.all(defaultPadding),
+        decoration: BoxDecoration(
+          color: secondaryColor,
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
         ),
-      ),
-    );
+        child: CustomDataTable(
+          title: "Recent Sales",
+          headers: [
+            SaleInfoHeader(title: "Product"),
+            SaleInfoHeader(title: "Amount", isNumeric: true),
+            SaleInfoHeader(title: "Quantity", isNumeric: true),
+            SaleInfoHeader(title: "Sold On")
+          ],
+          rows: demoSaleInfo
+              .map((e) => [
+                    e.product,
+                    numberFormat.format(e.price),
+                    "${e.quantity}",
+                    e.date
+                  ])
+              .toList(),
+        ));
   }
 }
