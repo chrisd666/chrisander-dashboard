@@ -53,12 +53,6 @@ class ProfileCard extends StatelessWidget {
               size: 38,
             ),
           ),
-          // if (!Responsive.isMobile(context))
-          //   Padding(
-          //     padding:
-          //         const EdgeInsets.symmetric(horizontal: defaultPadding / 2),
-          //     child: Text("Christopher Dias"),
-          //   ),
           Icon(Icons.keyboard_arrow_down)
         ],
       ),

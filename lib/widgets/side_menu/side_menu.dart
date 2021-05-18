@@ -25,7 +25,9 @@ class SideMenu extends StatelessWidget {
             DrawerListTile(
               icon: Icons.list_alt_sharp,
               title: "Tasks",
-              press: () {},
+              press: () {
+                Navigator.pushNamed(context, '/tasks');
+              },
             ),
             DrawerListTile(
               icon: Icons.description,

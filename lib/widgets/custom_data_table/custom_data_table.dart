@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../constants.dart';
-import '../../models/SaleInfo.dart';
+import '../../widgets/custom_data_table/custom_data_table_header.type.dart';
 
 class CustomDataTable extends StatelessWidget {
   const CustomDataTable(
@@ -11,7 +11,7 @@ class CustomDataTable extends StatelessWidget {
       : super(key: key);
 
   final String title;
-  final List<SaleInfoHeader> headers;
+  final List<CustomDataTableHeader> headers;
   final List<List<String>> rows;
 
   @override
@@ -42,7 +42,7 @@ class ScrollableTable extends StatelessWidget {
   const ScrollableTable({Key key, @required this.headers, @required this.rows})
       : super(key: key);
 
-  final List<SaleInfoHeader> headers;
+  final List<CustomDataTableHeader> headers;
   final List<List<String>> rows;
 
   DataRow renderDataRow(List<String> row) {

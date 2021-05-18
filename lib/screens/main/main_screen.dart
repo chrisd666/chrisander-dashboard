@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import '../../controllers/MenuController.dart';
 import '../../responsive.dart';
 import '../../screens/dashboard/dashboard_screen.dart';
-import './components/side_menu.dart';
+import '../../widgets/side_menu/side_menu.dart';
 
 class MainScreen extends StatelessWidget {
   @override

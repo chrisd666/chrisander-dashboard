@@ -34,10 +34,3 @@ List<SaleInfo> demoSaleInfo = [
     date: "25-02-2021",
   ),
 ];
-
-class SaleInfoHeader {
-  final String title;
-  final bool isNumeric;
-
-  SaleInfoHeader({@required this.title, this.isNumeric = false});
-}
