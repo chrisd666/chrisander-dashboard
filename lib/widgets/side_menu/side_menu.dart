@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../screens/dashboard/dashboard_screen.dart';
+import '../../screens/tasks/tasks_screen.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({
@@ -15,7 +17,9 @@ class SideMenu extends StatelessWidget {
             DrawerListTile(
               icon: Icons.dashboard_rounded,
               title: "Dashboard",
-              press: () {},
+              press: () {
+                Navigator.pushNamed(context, DashboardScreen.route);
+              },
             ),
             DrawerListTile(
               icon: Icons.receipt_long,
@@ -26,7 +30,7 @@ class SideMenu extends StatelessWidget {
               icon: Icons.list_alt_sharp,
               title: "Tasks",
               press: () {
-                Navigator.pushNamed(context, '/tasks');
+                Navigator.pushNamed(context, TasksScreen.route);
               },
             ),
             DrawerListTile(
