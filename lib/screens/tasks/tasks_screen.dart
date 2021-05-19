@@ -1,5 +1,6 @@
 import 'package:chrisander_dashboard/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import '../../widgets/side_menu/side_menu.dart';
 import '../../widgets/custom_data_table/custom_data_table.dart';
 import '../../widgets/custom_data_table/custom_data_table_header.type.dart';
@@ -26,6 +27,19 @@ class TasksScreen extends StatelessWidget {
 }
 
 class TasksScreenBody extends StatelessWidget {
+  String formatStatus(TaskStatus status) {
+    switch (status) {
+      case TaskStatus.PENDING:
+        return "pending";
+      case TaskStatus.IN_PROGRESS:
+        return "in progress";
+      case TaskStatus.DONE:
+        return "done";
+      default:
+        return "pending";
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -39,9 +53,14 @@ class TasksScreenBody extends StatelessWidget {
             CustomDataTableHeader(title: "Status"),
             CustomDataTableHeader(title: "Assigned On"),
           ],
-          rows: demoTasks.map((e) =>
-              // [e.task, e.assignedTo, e.status, e.assignedOn]
-              [e.task, "ass", "tiddies", "ass&tiddies"]).toList()),
+          rows: demoTasks
+              .map((e) => [
+                    e.task,
+                    e.assignedTo,
+                    formatStatus(e.status),
+                    DateFormat("MMM dd yyyy, HH:mm").format(e.assignedOn)
+                  ])
+              .toList()),
     ));
   }
 }
