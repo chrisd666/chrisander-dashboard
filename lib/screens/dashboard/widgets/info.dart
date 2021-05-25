@@ -50,8 +50,8 @@ class InfoCardGridView extends StatelessWidget {
         itemCount: demoMyFields.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: crossAxisCount,
-            crossAxisSpacing: defaultPadding,
-            mainAxisSpacing: defaultPadding,
+            crossAxisSpacing: defaultSizing,
+            mainAxisSpacing: defaultSizing,
             childAspectRatio: childAspectRatio),
         itemBuilder: (context, index) => InfoCard(
               info: demoMyFields[index],

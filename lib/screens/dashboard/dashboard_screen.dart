@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../constants.dart';
 import '../../responsive.dart';
-import 'components/sales_details.dart';
-import 'components/info.dart';
-import 'components/recent_sales.dart';
+import 'widgets/sales_details.dart';
+import 'widgets/info.dart';
+import 'widgets/recent_sales.dart';
 import '../../widgets/side_menu/side_menu.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -15,9 +15,8 @@ class DashboardScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           "Dashboard",
-          style: Theme.of(context).textTheme.headline6,
         ),
-        elevation: 1,
+        elevation: 0,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
       drawer: SideMenu(),
@@ -35,13 +34,14 @@ class DashboardScreenBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: SingleChildScrollView(
-      padding: EdgeInsets.all(defaultPadding),
+      padding: EdgeInsets.only(
+          right: defaultSizing, left: defaultSizing, bottom: defaultSizing),
       child: Column(
         children: [
           // Header(),
           SizedBox(
-            width: defaultPadding,
-            height: defaultPadding,
+            width: defaultSizing,
+            height: defaultSizing,
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,19 +51,19 @@ class DashboardScreenBody extends StatelessWidget {
                   child: Column(children: [
                     Info(),
                     SizedBox(
-                      height: defaultPadding,
+                      height: defaultSizing,
                     ),
                     RecentSales(),
                     if (Responsive.isXS(context) || Responsive.isSM(context))
                       SizedBox(
-                        height: defaultPadding,
+                        height: defaultSizing,
                       ),
                     if (Responsive.isXS(context) || Responsive.isSM(context))
                       SalesDetails()
                   ])),
               if (!Responsive.isXS(context) && !Responsive.isSM(context))
                 SizedBox(
-                  width: defaultPadding,
+                  width: defaultSizing,
                 ),
               if (!Responsive.isXS(context) && !Responsive.isSM(context))
                 Expanded(flex: 2, child: SalesDetails())

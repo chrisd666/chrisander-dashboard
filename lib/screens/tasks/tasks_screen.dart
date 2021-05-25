@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../../widgets/side_menu/side_menu.dart';
 import '../../widgets/custom_data_table/custom_data_table.dart';
-import '../../widgets/custom_data_table/custom_data_table_header.type.dart';
 import '../../models/Tasks.dart';
 
 class TasksScreen extends StatelessWidget {
@@ -15,9 +14,8 @@ class TasksScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           "Tasks",
-          style: Theme.of(context).textTheme.headline6,
         ),
-        elevation: 1,
+        elevation: 0,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
       drawer: SideMenu(),
@@ -27,16 +25,28 @@ class TasksScreen extends StatelessWidget {
 }
 
 class TasksScreenBody extends StatelessWidget {
-  String formatStatus(TaskStatus status) {
+  formatStatus(TaskStatus status) {
     switch (status) {
       case TaskStatus.PENDING:
-        return "pending";
+        return Chip(
+          label: Text('Pending'),
+          backgroundColor: Colors.redAccent,
+        );
       case TaskStatus.IN_PROGRESS:
-        return "in progress";
+        return Chip(
+          label: Text("In Progress"),
+          backgroundColor: Colors.yellow.shade800,
+        );
       case TaskStatus.DONE:
-        return "done";
+        return Chip(
+          label: Text("Done"),
+          backgroundColor: Colors.green,
+        );
       default:
-        return "pending";
+        return Chip(
+          label: Text('Pending'),
+          backgroundColor: Colors.redAccent,
+        );
     }
   }
 
@@ -44,9 +54,9 @@ class TasksScreenBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Container(
-      margin: EdgeInsets.all(defaultPadding),
+      margin: EdgeInsets.all(defaultSizing),
       child: CustomDataTable(
-          title: "Tasks",
+          title: "Task List",
           headers: [
             CustomDataTableHeader(title: "Task"),
             CustomDataTableHeader(title: "Assigned To"),
@@ -55,10 +65,11 @@ class TasksScreenBody extends StatelessWidget {
           ],
           rows: demoTasks
               .map((e) => [
-                    e.task,
-                    e.assignedTo,
+                    Text(e.task),
+                    Text(e.assignedTo),
                     formatStatus(e.status),
-                    DateFormat("MMM dd yyyy, HH:mm").format(e.assignedOn)
+                    Text(DateFormat("dd MMM yyyy,   hh:mm a")
+                        .format(e.assignedOn))
                   ])
               .toList()),
     ));

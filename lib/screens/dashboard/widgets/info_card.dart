@@ -17,7 +17,7 @@ class InfoCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: secondaryColor,
+          color: Theme.of(context).cardColor,
           borderRadius: const BorderRadius.all(Radius.circular(10))),
       child: Stack(
         children: [
@@ -37,7 +37,7 @@ class InfoChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: defaultPadding * 3),
+      padding: const EdgeInsets.only(top: defaultSizing * 3),
       child: LineChart(
         LineChartData(
             borderData: FlBorderData(show: false),
@@ -75,7 +75,7 @@ class InfoFigures extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(defaultPadding),
+      padding: EdgeInsets.all(defaultSizing),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -97,7 +97,7 @@ class InfoFigures extends StatelessWidget {
             WidgetSpan(
               alignment: PlaceholderAlignment.middle,
               child: Container(
-                margin: EdgeInsets.only(right: defaultPadding / 2),
+                margin: EdgeInsets.only(right: defaultSizing / 2),
                 child: Icon(
                   Icons.arrow_upward_rounded,
                   color: Colors.greenAccent,

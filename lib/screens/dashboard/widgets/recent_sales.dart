@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../../../widgets/custom_data_table/custom_data_table.dart';
 import '../../../constants.dart';
 import '../../../models/SaleInfo.dart';
-import '../../../widgets/custom_data_table/custom_data_table_header.type.dart';
 
 class RecentSales extends StatelessWidget {
   const RecentSales({Key key}) : super(key: key);

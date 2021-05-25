@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../constants.dart';
-import '../../widgets/custom_data_table/custom_data_table_header.type.dart';
 
 class CustomDataTable extends StatelessWidget {
   const CustomDataTable(
@@ -12,21 +11,21 @@ class CustomDataTable extends StatelessWidget {
 
   final String title;
   final List<CustomDataTableHeader> headers;
-  final List<List<String>> rows;
+  final List<List<dynamic>> rows;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(defaultPadding),
+      padding: EdgeInsets.all(defaultSizing),
       decoration: BoxDecoration(
-          color: secondaryColor,
+          color: Theme.of(context).cardColor,
           borderRadius: const BorderRadius.all(Radius.circular(10))),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             title,
-            style: Theme.of(context).textTheme.subtitle1,
+            style: Theme.of(context).textTheme.headline6,
           ),
           ScrollableTable(
             headers: headers,
@@ -43,10 +42,10 @@ class ScrollableTable extends StatelessWidget {
       : super(key: key);
 
   final List<CustomDataTableHeader> headers;
-  final List<List<String>> rows;
+  final List<List<dynamic>> rows;
 
-  DataRow renderDataRow(List<String> row) {
-    return DataRow(cells: row.map((e) => DataCell(Text(e))).toList());
+  DataRow renderDataRow(List<dynamic> row) {
+    return DataRow(cells: row.map((e) => DataCell(e)).toList());
   }
 
   @override
@@ -61,7 +60,7 @@ class ScrollableTable extends StatelessWidget {
                   constraints: BoxConstraints(minWidth: constraints.maxWidth),
                   child: DataTable(
                     horizontalMargin: 0,
-                    columnSpacing: defaultPadding,
+                    columnSpacing: defaultSizing,
                     columns: headers
                         .map((header) => DataColumn(
                             label: Text(header.title), numeric: false))
@@ -72,4 +71,11 @@ class ScrollableTable extends StatelessWidget {
               )),
     );
   }
+}
+
+class CustomDataTableHeader {
+  final String title;
+  final bool isNumeric;
+
+  CustomDataTableHeader({@required this.title, this.isNumeric = false});
 }

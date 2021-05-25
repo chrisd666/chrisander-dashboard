@@ -11,9 +11,9 @@ class SalesDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(defaultPadding),
+      padding: EdgeInsets.all(defaultSizing),
       decoration: BoxDecoration(
-          color: secondaryColor,
+          color: Theme.of(context).cardColor,
           borderRadius: const BorderRadius.all(Radius.circular(10))),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -23,7 +23,7 @@ class SalesDetails extends StatelessWidget {
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
           ),
           SizedBox(
-            height: defaultPadding,
+            height: defaultSizing,
           ),
           Chart(),
           SalesInfoCard(

@@ -38,11 +38,11 @@ class ProfileCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: defaultPadding),
+      margin: EdgeInsets.only(left: defaultSizing),
       padding: EdgeInsets.symmetric(
-          horizontal: defaultPadding, vertical: defaultPadding / 2),
+          horizontal: defaultSizing, vertical: defaultSizing / 2),
       decoration: BoxDecoration(
-          color: secondaryColor,
+          color: Theme.of(context).cardColor,
           borderRadius: const BorderRadius.all(Radius.circular(10)),
           border: Border.all(color: Colors.white10)),
       child: Row(

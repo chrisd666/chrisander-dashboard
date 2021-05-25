@@ -34,9 +34,11 @@ List<Tasks> demoTasks = [
   Tasks(
       task: "Polish bottles.",
       assignedTo: "Harley Quinn",
-      assignedOn: DateTime.parse("2021-07-01 13:12:00")),
+      assignedOn: DateTime.parse("2021-07-01 13:12:00"),
+      status: TaskStatus.IN_PROGRESS),
   Tasks(
       task: "Fix toilet flush.",
       assignedTo: "Tony Stark",
-      assignedOn: DateTime.parse("2021-04-03 13:12:00")),
+      assignedOn: DateTime.parse("2021-04-03 13:12:00"),
+      status: TaskStatus.DONE),
 ];

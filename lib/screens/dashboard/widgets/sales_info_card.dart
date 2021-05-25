@@ -17,12 +17,11 @@ class SalesInfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: defaultPadding),
-      padding: EdgeInsets.all(defaultPadding),
+      margin: EdgeInsets.only(top: defaultSizing),
+      padding: EdgeInsets.all(defaultSizing),
       decoration: BoxDecoration(
           border: Border.all(width: 2, color: primaryColor.withOpacity(0.15)),
-          borderRadius:
-              const BorderRadius.all(Radius.circular(defaultPadding))),
+          borderRadius: const BorderRadius.all(Radius.circular(defaultSizing))),
       child: Row(
         children: [
           SizedBox(
@@ -34,7 +33,7 @@ class SalesInfoCard extends StatelessWidget {
           ),
           Expanded(
               child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+            padding: const EdgeInsets.symmetric(horizontal: defaultSizing),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

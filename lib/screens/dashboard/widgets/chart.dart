@@ -23,7 +23,7 @@ class Chart extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                height: defaultPadding,
+                height: defaultSizing,
               ),
               Text(
                 numberFormat.format(126),
