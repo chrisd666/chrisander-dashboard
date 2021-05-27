@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart';
-
 class SaleInfo {
   final String product, date;
   final double price;

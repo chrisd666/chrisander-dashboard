@@ -18,10 +18,10 @@ class RecentSales extends StatelessWidget {
       ],
       rows: demoSaleInfo
           .map((e) => [
-                e.product,
-                numberFormat.format(e.price),
-                "${e.quantity}",
-                e.date
+                Text(e.product),
+                Text(numberFormat.format(e.price)),
+                Text("${e.quantity}"),
+                Text(e.date)
               ])
           .toList(),
     );
