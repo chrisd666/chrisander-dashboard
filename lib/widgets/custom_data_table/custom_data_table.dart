@@ -5,6 +5,7 @@ class CustomDataTable extends StatelessWidget {
   const CustomDataTable(
       {Key key,
       @required this.title,
+      this.button,
       @required this.headers,
       @required this.rows})
       : super(key: key);
@@ -12,26 +13,45 @@ class CustomDataTable extends StatelessWidget {
   final String title;
   final List<CustomDataTableHeader> headers;
   final List<List<dynamic>> rows;
+  final ElevatedButton button;
+
+  List<Widget> renderTableHeader(BuildContext context) {
+    List<Widget> children = [
+      Text(
+        title,
+        style: Theme.of(context).textTheme.headline6,
+      ),
+    ];
+
+    if (button != null) {
+      children.add(button);
+    }
+
+    return children;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(defaultSizing),
-      decoration: BoxDecoration(
-          color: Theme.of(context).cardColor,
-          borderRadius: const BorderRadius.all(Radius.circular(10))),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: Theme.of(context).textTheme.headline6,
-          ),
-          ScrollableTable(
-            headers: headers,
-            rows: rows,
-          )
-        ],
+    return Align(
+      alignment: Alignment.topCenter,
+      child: Container(
+        constraints: BoxConstraints(maxWidth: 1440),
+        padding: EdgeInsets.all(defaultSizing),
+        decoration: BoxDecoration(
+            color: Theme.of(context).cardColor,
+            borderRadius: const BorderRadius.all(Radius.circular(10))),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: renderTableHeader(context)),
+            ScrollableTable(
+              headers: headers,
+              rows: rows,
+            )
+          ],
+        ),
       ),
     );
   }
