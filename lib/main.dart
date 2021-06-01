@@ -24,12 +24,13 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Admin Panel',
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: bgColor,
-        textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)
-            .apply(bodyColor: Colors.white),
-        cardColor: surfaceColor,
-      ),
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
+      // .dark().copyWith(
+      //   scaffoldBackgroundColor: bgColor,
+      //   textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)
+      //       .apply(bodyColor: Colors.white),
+      //   cardColor: surfaceColor,
+      // ),
       routes: {
         '/': (context) {
           return FutureBuilder(
