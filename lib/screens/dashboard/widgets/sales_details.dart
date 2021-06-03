@@ -5,7 +5,7 @@ import 'sales_info_card.dart';
 
 class SalesDetails extends StatelessWidget {
   const SalesDetails({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

@@ -6,7 +6,7 @@ import '../../../models/InfoCardData.dart';
 
 class Info extends StatelessWidget {
   const Info({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -34,7 +34,7 @@ class Info extends StatelessWidget {
 
 class InfoCardGridView extends StatelessWidget {
   const InfoCardGridView({
-    Key key,
+    Key? key,
     this.crossAxisCount = 1,
     this.childAspectRatio = 1 / 0.5,
   }) : super(key: key);

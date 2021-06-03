@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../controllers/MenuController.dart';
-import '../../../responsive.dart';
-import '../../../constants.dart';
+import '../controllers/MenuController.dart';
+import '../responsive.dart';
+import '../constants.dart';
 
 class Header extends StatelessWidget {
-  const Header({
-    Key key,
-  }) : super(key: key);
+  final String title;
+
+  const Header({required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -16,15 +16,16 @@ class Header extends StatelessWidget {
         if (!Responsive.isLG(context))
           IconButton(
               icon: Icon(Icons.menu),
-              onPressed: context.read<MenuController>().controlMenu),
+              // onPressed: context.read<MenuController>().controlMenu),
+              onPressed: () => print('Sidemenu clicked')),
         Text(
           "Dashboard",
           style: Theme.of(context).textTheme.headline6,
         ),
-        Spacer(
-          flex: Responsive.isLG(context) ? 2 : 1,
-        ),
-        ProfileCard()
+        // Spacer(
+        //   flex: Responsive.isLG(context) ? 2 : 1,
+        // ),
+        // ProfileCard()
       ],
     );
   }
@@ -32,7 +33,7 @@ class Header extends StatelessWidget {
 
 class ProfileCard extends StatelessWidget {
   const ProfileCard({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

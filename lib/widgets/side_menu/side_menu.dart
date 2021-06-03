@@ -5,7 +5,7 @@ import '../../screens/employees/employees_screen.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -70,10 +70,10 @@ class SideMenu extends StatelessWidget {
 
 class DrawerListTile extends StatelessWidget {
   const DrawerListTile({
-    Key key,
-    @required this.icon,
-    @required this.title,
-    @required this.press,
+    Key? key,
+    required this.icon,
+    required this.title,
+    required this.press,
   }) : super(key: key);
 
   final IconData icon;

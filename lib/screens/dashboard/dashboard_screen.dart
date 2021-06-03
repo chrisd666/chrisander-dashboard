@@ -27,7 +27,7 @@ class DashboardScreen extends StatelessWidget {
 
 class DashboardScreenBody extends StatelessWidget {
   const DashboardScreenBody({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

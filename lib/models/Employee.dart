@@ -4,8 +4,8 @@ class Employee {
   final String name, workingIn, role;
 
   Employee(
-      {@required this.name,
-      @required this.workingIn,
+      {required this.name,
+      required this.workingIn,
       this.role = "Receiptionist"});
 }
 

@@ -4,7 +4,7 @@ import '../../../constants.dart';
 import '../../../models/SaleInfo.dart';
 
 class RecentSales extends StatelessWidget {
-  const RecentSales({Key key}) : super(key: key);
+  const RecentSales({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

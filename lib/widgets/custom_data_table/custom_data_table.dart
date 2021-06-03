@@ -3,17 +3,17 @@ import '../../constants.dart';
 
 class CustomDataTable extends StatelessWidget {
   const CustomDataTable(
-      {Key key,
-      @required this.title,
+      {Key? key,
+      required this.title,
       this.button,
-      @required this.headers,
-      @required this.rows})
+      required this.headers,
+      required this.rows})
       : super(key: key);
 
   final String title;
   final List<CustomDataTableHeader> headers;
   final List<List<dynamic>> rows;
-  final ElevatedButton button;
+  final ElevatedButton? button;
 
   List<Widget> renderTableHeader(BuildContext context) {
     List<Widget> children = [
@@ -24,7 +24,7 @@ class CustomDataTable extends StatelessWidget {
     ];
 
     if (button != null) {
-      children.add(button);
+      children.add(button!);
     }
 
     return children;
@@ -58,7 +58,7 @@ class CustomDataTable extends StatelessWidget {
 }
 
 class ScrollableTable extends StatelessWidget {
-  const ScrollableTable({Key key, @required this.headers, @required this.rows})
+  const ScrollableTable({Key? key, required this.headers, required this.rows})
       : super(key: key);
 
   final List<CustomDataTableHeader> headers;
@@ -97,5 +97,5 @@ class CustomDataTableHeader {
   final String title;
   final bool isNumeric;
 
-  CustomDataTableHeader({@required this.title, this.isNumeric = false});
+  CustomDataTableHeader({required this.title, this.isNumeric = false});
 }
