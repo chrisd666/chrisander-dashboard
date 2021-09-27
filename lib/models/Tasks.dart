@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart';
-
 enum TaskStatus { PENDING, IN_PROGRESS, DONE }
 
 class Tasks {
@@ -8,9 +6,9 @@ class Tasks {
   final TaskStatus status;
 
   Tasks(
-      {@required this.task,
-      @required this.assignedTo,
-      @required this.assignedOn,
+      {required this.task,
+      required this.assignedTo,
+      required this.assignedOn,
       this.status = TaskStatus.PENDING});
 }
 

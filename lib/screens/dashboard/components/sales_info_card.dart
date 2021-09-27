@@ -3,11 +3,11 @@ import '../../../constants.dart';
 
 class SalesInfoCard extends StatelessWidget {
   const SalesInfoCard({
-    Key key,
-    @required this.title,
-    @required this.inventoryQty,
-    @required this.icon,
-    @required this.soldQty,
+    Key? key,
+    required this.title,
+    required this.inventoryQty,
+    required this.icon,
+    required this.soldQty,
   }) : super(key: key);
 
   final String title;
@@ -47,7 +47,7 @@ class SalesInfoCard extends StatelessWidget {
                   numberFormat.format(inventoryQty),
                   style: Theme.of(context)
                       .textTheme
-                      .caption
+                      .caption!
                       .copyWith(color: Colors.white70),
                 )
               ],

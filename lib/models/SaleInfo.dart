@@ -1,11 +1,13 @@
-import 'package:flutter/foundation.dart';
-
 class SaleInfo {
   final String product, date;
   final double price;
   final int quantity;
 
-  SaleInfo({this.product, this.date, this.price, this.quantity});
+  SaleInfo(
+      {required this.product,
+      required this.date,
+      required this.price,
+      required this.quantity});
 }
 
 List<SaleInfo> demoSaleInfo = [

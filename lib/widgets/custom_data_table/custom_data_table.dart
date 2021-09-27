@@ -4,10 +4,10 @@ import '../../widgets/custom_data_table/custom_data_table_header.type.dart';
 
 class CustomDataTable extends StatelessWidget {
   const CustomDataTable(
-      {Key key,
-      @required this.title,
-      @required this.headers,
-      @required this.rows})
+      {Key? key,
+      required this.title,
+      required this.headers,
+      required this.rows})
       : super(key: key);
 
   final String title;
@@ -39,7 +39,7 @@ class CustomDataTable extends StatelessWidget {
 }
 
 class ScrollableTable extends StatelessWidget {
-  const ScrollableTable({Key key, @required this.headers, @required this.rows})
+  const ScrollableTable({Key? key, required this.headers, required this.rows})
       : super(key: key);
 
   final List<CustomDataTableHeader> headers;

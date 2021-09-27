@@ -5,11 +5,11 @@ class CloudStorageInfo {
   final List<Map<String, double>> graphData;
 
   CloudStorageInfo(
-      {this.title,
-      this.amount,
-      this.percentageChange,
+      {required this.title,
+      required this.amount,
+      required this.percentageChange,
       this.isMoney = true,
-      this.graphData});
+      required this.graphData});
 }
 
 List<CloudStorageInfo> demoMyFields = [

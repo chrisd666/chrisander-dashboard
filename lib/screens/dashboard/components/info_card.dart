@@ -9,7 +9,7 @@ List<Color> gradientColors = [
 ];
 
 class InfoCard extends StatelessWidget {
-  const InfoCard({Key key, @required this.info}) : super(key: key);
+  const InfoCard({Key? key, required this.info}) : super(key: key);
 
   final CloudStorageInfo info;
 
@@ -30,7 +30,7 @@ class InfoCard extends StatelessWidget {
 }
 
 class InfoChart extends StatelessWidget {
-  const InfoChart({Key key, @required this.graphData}) : super(key: key);
+  const InfoChart({Key? key, required this.graphData}) : super(key: key);
 
   final List<Map<String, double>> graphData;
 
@@ -47,7 +47,8 @@ class InfoChart extends StatelessWidget {
             minY: 0,
             lineBarsData: [
               LineChartBarData(
-                  spots: graphData.map((e) => FlSpot(e['x'], e['y'])).toList(),
+                  spots:
+                      graphData.map((e) => FlSpot(e['x']!, e['y']!)).toList(),
                   isCurved: true,
                   dotData: FlDotData(show: false),
                   colors: gradientColors,
@@ -66,8 +67,8 @@ class InfoChart extends StatelessWidget {
 
 class InfoFigures extends StatelessWidget {
   const InfoFigures({
-    Key key,
-    @required this.info,
+    Key? key,
+    required this.info,
   }) : super(key: key);
 
   final CloudStorageInfo info;
@@ -84,12 +85,12 @@ class InfoFigures extends StatelessWidget {
             info.title,
             style: Theme.of(context)
                 .textTheme
-                .subtitle2
+                .subtitle2!
                 .copyWith(color: Colors.white70),
           ),
           Text(
             "${info.isMoney ? 'Rs. ' : null} ${numberFormat.format(info.amount)}",
-            style: Theme.of(context).textTheme.headline5.copyWith(
+            style: Theme.of(context).textTheme.headline5!.copyWith(
                 color: Colors.lightBlueAccent, fontWeight: FontWeight.w600),
           ),
           RichText(
@@ -109,13 +110,13 @@ class InfoFigures extends StatelessWidget {
                 text: "+${info.percentageChange}%  ",
                 style: Theme.of(context)
                     .textTheme
-                    .subtitle1
+                    .subtitle1!
                     .copyWith(color: Colors.greenAccent)),
             TextSpan(
                 text: "this week",
                 style: Theme.of(context)
                     .textTheme
-                    .bodyText2
+                    .bodyText2!
                     .copyWith(color: Colors.white70))
           ])),
         ],

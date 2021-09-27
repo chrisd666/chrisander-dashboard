@@ -34,16 +34,12 @@ import 'package:flutter/material.dart';
 
 class Responsive extends StatelessWidget {
   final Widget xs;
-  final Widget sm;
+  final Widget? sm;
   final Widget md;
   final Widget lg;
 
   const Responsive(
-      {Key key,
-      @required this.xs,
-      this.sm,
-      @required this.md,
-      @required this.lg})
+      {Key? key, required this.xs, this.sm, required this.md, required this.lg})
       : super(key: key);
 
   static bool isXS(BuildContext context) =>
@@ -67,7 +63,7 @@ class Responsive extends StatelessWidget {
     else if (isMD(context))
       return md;
     else if (isSM(context))
-      return sm;
+      return sm!;
     else
       return xs;
   }
