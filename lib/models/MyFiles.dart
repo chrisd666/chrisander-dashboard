@@ -8,12 +8,12 @@ class CloudStorageInfo {
   final Color color;
 
   CloudStorageInfo(
-      {this.icon,
-      this.title,
-      this.totalStorage,
-      this.color,
-      this.noOfFiles,
-      this.percentage});
+      {required this.icon,
+      required this.title,
+      required this.totalStorage,
+      required this.color,
+      required this.noOfFiles,
+      required this.percentage});
 }
 
 List<CloudStorageInfo> demoMyFields = [

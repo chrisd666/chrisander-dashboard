@@ -5,7 +5,7 @@ import '../components/storage_info_card.dart';
 
 class StorageDetails extends StatelessWidget {
   const StorageDetails({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

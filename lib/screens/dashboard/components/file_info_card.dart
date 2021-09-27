@@ -3,7 +3,7 @@ import '../../../constants.dart';
 import '../../../models/MyFiles.dart';
 
 class FileInfoCard extends StatelessWidget {
-  const FileInfoCard({Key key, @required this.info}) : super(key: key);
+  const FileInfoCard({Key? key, required this.info}) : super(key: key);
 
   final CloudStorageInfo info;
 
@@ -54,14 +54,14 @@ class FileInfoCard extends StatelessWidget {
                 "${info.noOfFiles} Files",
                 style: Theme.of(context)
                     .textTheme
-                    .caption
+                    .caption!
                     .copyWith(color: Colors.white70),
               ),
               Text(
                 info.totalStorage,
                 style: Theme.of(context)
                     .textTheme
-                    .caption
+                    .caption!
                     .copyWith(color: Colors.white),
               )
             ],
@@ -74,9 +74,9 @@ class FileInfoCard extends StatelessWidget {
 
 class ProgressLine extends StatelessWidget {
   const ProgressLine({
-    Key key,
+    Key? key,
     this.color = primaryColor,
-    @required this.percentage,
+    required this.percentage,
   }) : super(key: key);
 
   final Color color;

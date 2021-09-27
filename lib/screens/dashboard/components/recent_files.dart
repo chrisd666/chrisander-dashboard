@@ -3,7 +3,7 @@ import '../../../constants.dart';
 import '../../../models/RecentFiles.dart';
 
 class RecentFiles extends StatelessWidget {
-  const RecentFiles({Key key}) : super(key: key);
+  const RecentFiles({Key? key}) : super(key: key);
 
   DataRow recentFileDataRow(RecentFile file) {
     return DataRow(cells: [

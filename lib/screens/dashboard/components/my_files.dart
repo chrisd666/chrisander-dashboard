@@ -6,7 +6,7 @@ import '../../../models/MyFiles.dart';
 
 class MyFields extends StatelessWidget {
   const MyFields({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -53,7 +53,7 @@ class MyFields extends StatelessWidget {
 
 class FileInfoCardGridView extends StatelessWidget {
   const FileInfoCardGridView({
-    Key key,
+    Key? key,
     this.crossAxisCount = 4,
     this.childAspectRatio = 1,
   }) : super(key: key);

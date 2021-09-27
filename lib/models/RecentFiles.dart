@@ -5,10 +5,10 @@ class RecentFile {
   final IconData icon;
 
   RecentFile({
-    this.icon,
-    this.title,
-    this.date,
-    this.size,
+    required this.icon,
+    required this.title,
+    required this.date,
+    required this.size,
   });
 }
 
